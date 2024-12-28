@@ -1,0 +1,23 @@
+{% extends 'base_generic.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container my-5">
+    <h1 class="tm-text-primary mb-4">بضائع نورسين </h1>
+    </div>
+    <div class="container my-5">
+        <div class="row">
+            {% for p in product %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body" style="background: #222222; color: white;">
+                        <h4>المنتج : {{ p.name }}</h4>
+                        <h4>السعر  : {{ p.price }}</h4>
+                        <h4>الكميه : {{ p.quantity }}</h4>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+<br>
+{% endblock content %}

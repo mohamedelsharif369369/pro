@@ -1,0 +1,28 @@
+{% extends 'base_generic.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container my-5">
+<h1 class="tm-text-primary mb-4">كروت الافراح</h1>
+</div>
+<div class="container my-5">
+    <div class="row">
+        {% for mz in manzom %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                {% if mz.img %}
+                <img src="{{ mz.img.url }}" alt="{{ mz.code }}" style="width: 414px; height: 400px;">
+                {% else %}
+                <p>no image available</p>
+                {% endif %}
+                <div class="card-body" style="background: #222222; color: white;">
+                    <h4 class="card-title">الكود : {{ mz.code }}</h4>
+                    <h4 class="card-title">الكميه : {{ mz.quantity }}</h4>
+                    <h4 class="card-title">السعر : {{ mz.price }}</h4>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
+
